@@ -13,11 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/me', function () {
-    return 
-    ["nis" =>"3103118119", 
-    "name" => "Safina Nanda Kinanthi Asrie",
-    "gender" => "Perempuan",
-    "phone" => "088983129690",
-    "class" => "XII RPL 4"];
-});
+Route::get('me','AuthController@index');
