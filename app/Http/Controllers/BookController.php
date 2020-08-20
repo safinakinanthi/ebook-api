@@ -26,12 +26,12 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-       Book::create([
+       return Book::create([
             "title"=>$request->title,
             "description"=>$request->description,
             "author"=>$request->author,
             "publisher"=>$request->publisher,
-            "date_of_issue"=>$request->date_of_issue,
+            "date_of_issue"=>$request->date_of_issue
 
 
 
@@ -58,7 +58,14 @@ class BookController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        return Book::find($id)->update([
+ "title"=>$request->title,
+            "description"=>$request->description,
+            "author"=>$request->author,
+            "publisher"=>$request->publisher,
+            "date_of_issue"=>$request->date_of_issue,
+
+        ]);
     }
 
     /**
