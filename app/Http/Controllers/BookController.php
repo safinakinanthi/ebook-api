@@ -49,23 +49,21 @@ class BookController extends Controller
         return Book::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     
     public function update(Request $request, $id)
     {
-        return Book::find($id)->update([
- "title"=>$request->title,
-            "description"=>$request->description,
-            "author"=>$request->author,
-            "publisher"=>$request->publisher,
-            "date_of_issue"=>$request->date_of_issue,
-
-        ]);
+       $book = Book::find($id);
+        if($book){
+            $book->title=$request->title;
+            $book->description=$request->description;
+            $book->author=$request->author;
+            $book->publisher=$request->publisher;
+            $book->date_of_issue=$request->date_of_issue;
+            
+            $book->save();
+        }
+        return $book;
     }
 
     /**
